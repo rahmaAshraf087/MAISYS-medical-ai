@@ -1,0 +1,572 @@
+Detailed UI Pages & Content Specification (Web & Mobile)
+GLOBAL DESIGN & UX PRINCIPLES
+
+Default language: English
+
+Secondary language: Arabic
+
+Fonts:
+
+English: Outfit
+
+Arabic: IBM Plex Sans Arabic
+
+Design tone:
+
+Calm
+
+Professional
+
+Trustworthy
+
+Medical-grade
+
+Accessibility:
+
+High contrast
+
+Clear typography
+
+Readable layouts
+
+Persistent medical disclaimer:
+
+Displayed on first chatbot interaction
+
+Visible in footer across all pages
+
+1. SPLASH / LAUNCH SCREEN (Mobile)
+
+Purpose: Branding and trust
+
+Content
+
+Centered Logo Mark
+
+App name: MAISYS
+
+Tagline:
+Medical AI System for Trusted Health Guidance
+
+Subtext:
+Powered by verified medical sources
+
+Soft animated gradient background
+
+Footer text:
+Educational medical assistance – not a doctor
+
+2. ONBOARDING FLOW (4 SCREENS)
+Screen 1 – Welcome
+
+Title: Welcome to MAISYS
+
+Description:
+MAISYS is an AI-powered medical assistant designed to help users understand health information safely and clearly using trusted medical sources.
+
+CTA: Next
+
+Screen 2 – Core Capabilities
+
+Feature Cards (Icons + Text):
+
+💬 Medical AI chatbot with cited sources
+
+💊 Drug interaction checking
+
+🧪 Lab test explanation
+
+📄 Research paper assistant
+
+Screen 3 – Who MAISYS Is For
+
+User Groups:
+
+Patients seeking reliable medical information
+
+Medical students and researchers
+
+Healthcare professionals for quick reference
+
+Screen 4 – Safety & Consent
+
+Highlighted Notice:
+MAISYS does not diagnose diseases, prescribe treatments, or replace healthcare professionals or emergency services.
+
+Checkbox:
+☑ I understand and agree to the medical disclaimer and terms
+
+CTA: Get Started
+
+3. AUTHENTICATION PAGES
+Login Page
+
+Email or phone number
+
+Password
+
+Login button
+
+Continue as Guest
+
+Forgot password
+
+Language selector
+
+Privacy Policy & Terms links
+
+Register Page
+
+Full name
+
+Email or phone number
+
+Password
+
+Confirm password
+
+Create account button
+
+Short medical disclaimer below form
+
+4. HOME DASHBOARD
+
+Purpose: Main navigation hub
+
+Header
+
+Logo (left)
+
+Greeting text:
+Hello, how can MAISYS help you today?
+
+Profile avatar (right)
+
+Main Feature Grid
+
+Each card includes an icon and short description:
+
+Medical Chatbot
+Ask health-related questions safely
+
+Drug Interaction Checker
+Check medication safety
+
+Lab Test Explainer
+Understand lab results
+
+Research Paper Assistant
+Analyze and chat with research papers
+
+Upload Medical File
+PDFs and images supported
+
+Footer Disclaimer
+
+MAISYS provides medical information for educational purposes only.
+
+5. MEDICAL CHATBOT – CHAT MANAGEMENT & INTERACTION
+5.1 Chat Hub (Chat List Page)
+
+Purpose: Create and manage conversations
+
+Header
+
+Title: Medical Assistant
+
+Button: + New Chat
+
+Chat List Sections
+
+Recent Chats
+
+Auto-generated chat title
+
+Last message preview
+
+Timestamp
+
+Pin chat option
+
+Older Chats
+
+Scrollable list
+
+Search bar
+
+Filter by date
+
+Chat Actions (Menu / Swipe)
+
+Rename chat
+
+Archive chat
+
+Delete chat
+
+5.2 New Chat Creation
+New Chat Screen
+
+Welcome message:
+Start a new medical conversation
+
+Suggested prompts:
+
+“What causes high blood pressure?”
+
+“Are these medications safe together?”
+
+“Explain my lab test results”
+
+5.3 Medical Chat Conversation Page
+Chat Header
+
+Chat title
+
+Badge: Verified Medical Sources
+
+Options menu:
+
+Clear chat
+
+Export chat
+
+View sources
+
+First Mandatory Assistant Message
+
+👋 Welcome to MAISYS
+⚠️ Important: This system provides medical education only and does not diagnose, treat, or handle emergencies.
+
+Chat Input Area
+
+Text input field
+
+Attachment button (PDF / Image)
+
+Send button
+
+Message Interaction Options
+Assistant Message Actions
+
+👍 Like response
+
+👎 Dislike response
+
+📋 Copy assistant message
+
+🔗 View sources
+
+User Message Actions
+
+📋 Copy user message
+
+✏️ Edit and resend message
+
+Assistant Response Structure
+
+Clear medical explanation
+
+Bullet-point key facts
+
+Safety and risk notes
+
+When to consult a doctor
+
+Referenced medical sources
+
+6. DRUG INTERACTION CHECKER
+Page Header
+
+Title: Drug Interaction Checker
+Subtitle: Check medication safety before use
+
+Input Section
+
+Drug name input with auto-suggestions
+
+Selected drugs displayed as removable tags
+
+Add drug button
+
+Analyze Button
+
+CTA: Analyze Interactions
+
+Results Page
+
+Interaction Summary
+
+Overall risk level (color-coded badge)
+
+Short safety overview
+
+Detailed Interaction Cards
+
+Drug names involved
+
+Interaction mechanism
+
+Severity level
+
+Evidence source
+
+Clinical recommendations
+
+Warnings
+
+High-risk populations
+
+When to consult a healthcare professional
+
+7. SYMPTOM CHECKER (GUIDANCE ONLY)
+Page Header
+
+Title: Symptom Checker
+Note: Educational guidance only
+
+Step-by-Step Questionnaire
+
+Primary symptom
+
+Symptom duration
+
+Severity scale
+
+Associated symptoms
+
+Fever (Yes/No)
+
+Age group
+
+Pregnancy status
+
+Chronic medical conditions
+
+Results Screen
+
+Urgency Assessment
+
+Emergency / Same-day / Routine / Self-care
+
+Possible Causes
+
+Educational explanations (not diagnosis)
+
+Warning Signs
+
+Symptoms requiring urgent medical attention
+
+Next Steps
+
+Home care guidance
+
+Medical consultation advice
+
+8. LAB TEST EXPLAINER
+Upload Screen
+
+Upload PDF lab report
+
+Upload image
+
+Camera scan (mobile)
+
+Processing Screen
+
+OCR progress indicator
+
+Message: Analyzing lab report securely…
+
+Results Screen
+
+Test Overview
+
+Test name
+
+Purpose of the test
+
+Result Interpretation
+
+User’s value
+
+Normal reference range
+
+Explanation of abnormal findings
+
+Factors Affecting Results
+
+Medications
+
+Diet
+
+Health conditions
+
+Medical Advice
+
+When to consult a doctor
+
+Safety reminders
+
+9. RESEARCH PAPER ASSISTANT (ADVANCED)
+Entry Screen
+
+Short description:
+Analyze, compare, and understand research papers with AI assistance
+
+Two Main Paths
+Path 1 – Upload Papers
+
+Upload PDF or DOCX research papers
+
+List of uploaded files
+
+Remove or replace papers
+
+Path 2 – Discover Papers (AI Agent)
+
+Research field input
+
+Brief topic description
+
+Optional keywords
+
+Agent searches and retrieves relevant papers automatically
+
+Paper Chat Workspace
+
+Chat Capabilities
+
+Same interaction features as Medical Chatbot:
+
+New chat creation
+
+Chat history
+
+Like / dislike responses
+
+Copy assistant messages
+
+Copy user messages
+
+Feature Tabs (Inside Paper Workspace)
+
+Chat
+
+Ask questions about the paper(s)
+
+Compare multiple papers
+
+See cited sections
+
+Summarization
+
+Structured summary
+
+Key findings
+
+Limitations
+
+Translation
+
+Arabic ↔ English translation
+
+Medical terminology preserved
+
+OCR
+
+Extract text from scanned papers
+
+Q&A Generation
+
+Automatically generated questions and answers from the paper
+
+Export & Download Options
+
+Download summary (PDF)
+
+Download translated text
+
+Download generated Q&A
+
+Copy all content
+
+10. PROFILE PAGE
+Personal Information
+
+Full name
+
+Age
+
+Gender
+
+Blood type
+
+Medical Information
+
+Diabetes (Yes / No)
+
+Hypertension (Yes / No)
+
+Pregnancy status
+
+Chronic diseases
+
+Current medications
+
+Privacy Controls
+
+Explanation of data usage
+
+Delete stored data
+
+Enable anonymous mode
+
+11. SETTINGS PAGE
+
+Language selection
+
+Light / Dark mode
+
+Notifications
+
+Accessibility options
+
+About MAISYS
+
+12. TERMS, POLICIES & DISCLAIMERS
+Sections
+
+Medical disclaimer
+
+Privacy policy
+
+AI limitations
+
+Data sources transparency
+
+User responsibilities
+
+13. ERROR & SAFETY STATES
+Emergency Detection Screen
+
+⚠️ This may be a medical emergency
+Please seek immediate medical attention.
+
+Insufficient Information Message
+
+I do not have enough reliable information to provide a safe response.
+
+14. FOOTER (Web)
+
+Logo
+
+Medical disclaimer
+
+Medical data sources
+
+Privacy policy
+
+Contact information
+
+Application version

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "834610762174",
+    "project_id": "maisys-ra087",
+    "storage_bucket": "maisys-ra087.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834610762174:android:e9ba070f6d7d4afbcca9ef",
+        "android_client_info": {
+          "package_name": "com.example.maisys"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2tBmrx6e41rLo_-eMHnhgTuoK9h0R2m8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
