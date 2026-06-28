@@ -1,827 +1,336 @@
-# 🏥 MAISYS - Medical AI System for Trusted Health Guidance
-
 <div align="center">
 
-![Flutter](https://img.shields.io/badge/Flutter-3.19.0+-02569B?style=for-the-badge&logo=flutter&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-3.1.0+-0175C2?style=for-the-badge&logo=dart&logoColor=white)
-![Android Studio](https://img.shields.io/badge/Android_Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white)
-![Bloc](https://img.shields.io/badge/BLoC-State_Management-blueviolet?style=for-the-badge)
+<img src="https://capsule-render.vercel.app/api?type=waving&color=00B4D8&height=200&section=header&text=MAISYS&fontSize=80&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Medical%20AI%20System%20for%20Trusted%20Health%20Guidance&descAlignY=55&descSize=18" width="100%"/>
 
-**An intelligent medical mobile application powered by AI and LLM models**  
-*Graduation Project - Faculty of Computers and Artificial Intelligence, Benha University*
+<br/>
 
-[📱 Features](#-features) • [🛠️ Installation](#️-installation-guide) • [▶️ Run Project](#️-how-to-run) • [📂 Structure](#-project-structure) • [👥 Team](#-team)
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com)
+[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
+
+[![License](https://img.shields.io/badge/License-MIT-00B4D8?style=flat-square)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS-00B4D8?style=flat-square)](https://flutter.dev)
+[![Status](https://img.shields.io/badge/Status-Production%20Ready-00B4D8?style=flat-square)](#)
+[![Grade](https://img.shields.io/badge/Graduation%20Grade-A%2B-gold?style=flat-square)](#)
+
+<br/>
+
+> **AI-powered medical platform** featuring a medical chatbot, drug interaction checker, lab test analyzer, research paper assistant, and intelligent healthcare tools — built with **Flutter** for iOS & Android.
+
+<br/>
+
+[![Demo Video](https://img.shields.io/badge/▶%20Watch%20Full%20Demo-Google%20Drive-00B4D8?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/drive/folders/1c9OPs6rCOVtZjDE9kkt9Dui43MN-W1DK?usp=sharing)
+[![Screenshots](https://img.shields.io/badge/📸%20View%20Screenshots-Google%20Drive-34A853?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/drive/folders/1c9OPs6rCOVtZjDE9kkt9Dui43MN-W1DK?usp=sharing)
+[![LinkedIn](https://img.shields.io/badge/Rahma%20Ashraf-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rahma-ashraf-28b219279/)
 
 </div>
 
 ---
 
-## 📖 About The Project
+## 📌 Table of Contents
 
-**MAISYS** (Medical AI System) is a comprehensive medical assistance application designed to revolutionize patient care through artificial intelligence. The app provides trusted health guidance through AI-powered tools including symptom checking, drug interaction analysis, lab result interpretation, and research paper assistance.
+- [Overview](#-overview)
+- [Tech Stack](#-tech-stack)
+- [Architecture](#-architecture)
+- [Features](#-features)
+- [AI Tools](#-ai-tools)
+- [Screens & Demo](#-screens--demo)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [My Role](#-my-role)
+- [Contact](#-contact)
 
-This project represents our graduation project for the academic year **2025/2026**, combining modern mobile development practices with AI-powered healthcare solutions to create an accessible and user-friendly medical assistant that works seamlessly with a web platform.
+---
 
-### 🎯 Project Vision
-- Democratize access to medical information
-- Empower patients to monitor their health conditions
-- Provide instant, AI-powered medical guidance (powered by Groq AI - Llama 3.3)
-- Create a seamless healthcare experience across mobile and web platforms
-- Support bilingual users (English & Arabic) with proper localization
+## 🧠 Overview
+
+**MAISYS** (Medical AI System for Trusted Health Guidance) is a graduation project built at **Benha University — Faculty of Computer and Artificial Intelligence**, Department of Scientific Computing.
+
+The platform provides **five AI-powered medical tools** accessible through a cross-platform mobile application that supports both **Arabic and English**, with full RTL layout, dark/light theming, and accessibility features.
+
+> ⚠️ MAISYS is designed for **educational purposes only** and does not replace professional medical advice.
+
+---
+
+## ⚙️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Mobile App** | Flutter 3.x / Dart |
+| **State Management** | BLoC / Cubit Pattern |
+| **Backend API** | Node.js + Express.js |
+| **Database** | MongoDB + Mongoose |
+| **AI Engine** | Groq API — Llama 3.3 70B |
+| **Authentication** | JWT + bcrypt |
+| **Email Service** | Nodemailer + Gmail SMTP |
+| **File Handling** | Multer + base64 |
+| **Distribution** | Firebase App Distribution |
+| **Local Storage** | SharedPreferences |
+| **HTTP Client** | Dart `http` package |
+
+---
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    Flutter Mobile App                    │
+│  ┌──────────┐  ┌──────────┐  ┌────────────────────────┐ │
+│  │ThemeCubit│  │LangCubit │  │AccessibilityCubit      │ │
+│  └──────────┘  └──────────┘  └────────────────────────┘ │
+│              BLoC State Management                       │
+│              ApiService (Centralized HTTP)               │
+└───────────────────────┬─────────────────────────────────┘
+                        │ REST API (JWT Auth)
+┌───────────────────────▼─────────────────────────────────┐
+│                  Node.js Backend                         │
+│   Auth │ Chats │ Drug │ Lab │ Research │ Activities      │
+│              groqService.js                              │
+└───────────────────────┬─────────────────────────────────┘
+                        │
+          ┌─────────────┴─────────────┐
+          ▼                           ▼
+┌─────────────────┐       ┌───────────────────┐
+│   Groq API      │       │   MongoDB Atlas   │
+│ Llama 3.3 70B   │       │  Users │ Chats    │
+│                 │       │  Research │ Acts  │
+└─────────────────┘       └───────────────────┘
+```
 
 ---
 
 ## ✨ Features
 
-### 🔐 Authentication System
-- **Sign Up**: Complete user registration with email and password
-- **Login**: Secure JWT-based authentication
-- **Auto-Login**: Automatic session restoration on app restart
-- **Secure Token Management**: JWT tokens stored locally with SharedPreferences
+### 🔐 Authentication & Security
+- JWT-based signup / login with 7-day token expiry
+- bcrypt password hashing (salt rounds: 10)
+- **Forgot Password via Email OTP** — Gmail SMTP with 10-minute expiry
+- User data isolation — each user only accesses their own data
 
-### 🩺 Medical AI Tools
+### 👤 User Profile
+- Personal info: name, phone with **country code picker** (full global list), age, gender, blood type
+- Medical info: medications, allergies, medical conditions (tag-based input)
+- Profile picture — pick from gallery, take photo, or remove
+- All data persisted to MongoDB
 
-#### 1. Medical Chatbot
-- AI-powered conversational medical assistant
-- Ask questions about symptoms, conditions, and treatments
-- Responses include citations from verified medical sources
-- Chat history with search and filter capabilities
-- Long-press context menu (Rename, Archive, Delete)
+### 🎨 UI/UX
+- **Dark & Light Mode** with persistence
+- **Arabic & English** full localization with RTL layout support
+- Font switching: Outfit (EN) / IBM Plex Sans Arabic (AR)
+- **Adjustable text size** via accessibility slider
+- Unified **App Drawer** (right-side) with avatar, name, and navigation
+- Consistent **App Header** across all screens
 
-#### 2. Symptom Checker
-- Multi-step questionnaire (6 questions)
-    - Primary symptom selection
-    - Duration assessment
-    - Severity rating (1-10 scale)
-    - Additional symptoms
-    - Medical history
-    - Demographics
-- **Emergency Detection**: Redirects to Emergency Screen for critical symptoms
-- **Insufficient Info Handling**: Clear messaging when AI cannot provide safe response
+### 💬 Medical AI Chatbot
+- Create and manage multiple chat sessions
+- **File upload** — attach images, PDFs, or documents to queries
+- Persistent chat history with title and first-message preview
+- Chat options: **Rename**, **Pin**, **Share** (deep link), **Delete**
+- Flexible multi-line text input (expands like ChatGPT)
+- Typing indicator during AI processing
 
-#### 3. Drug Interaction Checker
-- Analyze interactions between medications (up to 5 drugs)
-- Severity ratings: LOW, MODERATE, HIGH, SEVERE
-- Detailed interaction mechanisms
-- Evidence-based recommendations
-- Important warnings section
+### 💊 Drug Interaction Checker
+- Check interactions between **up to 5 medications**
+- Severity classification: **Low / Moderate / High / Severe**
+- Clinical recommendations per interaction
+- Overall summary and warnings
+- **Language toggle** — response in English or Arabic
 
-#### 4. Lab Test Explainer
-- **Upload Options**:
-    - PDF reports
-    - Photo gallery images
-    - Camera scan (real-time)
-- **AI Analysis**:
-    - Marker extraction (name, value, unit, status)
-    - Normal range comparison
-    - Urgency assessment (ROUTINE/FOLLOW-UP/URGENT)
-    - Plain language explanations
-- **Test Categories**: Complete Blood Count (CBC), Metabolic Panel, etc.
+### 🧪 Lab Test Analyzer
+- Upload lab result image (JPEG, PNG)
+- Identifies and interprets individual markers
+- Status per marker: **Normal / High / Low / Critical**
+- Reference ranges in plain language
+- Overall urgency: **Routine / Follow-up / Urgent**
+- **Language toggle** — English or Arabic response
 
-#### 5. Research Assistant
-- **Paper Management**:
-    - Upload medical papers (PDF/DOCX)
-    - Search papers by topic or keywords
-    - Recent papers history
-- **AI-Powered Analysis**:
-    - **Summarization**: Structured summaries (Background, Methods, Key Findings, Conclusions)
-    - **Translation**: English ↔ Arabic full paper translation
-    - **OCR**: Text extraction from scanned pages/images
-    - **Q&A Generation**: Auto-generated questions and answers about the paper
-    - **Chat**: Ask specific questions about the paper content
-- **Download Options**: Download summaries and Q&A sets
+### 📄 Research Paper Assistant
+- Upload PDF or image (title, authors, journal are **optional**)
+- **Summarize** — structured: Background, Methods, Findings, Conclusions
+- **Q&A Generation** — 5 key questions and answers from the paper
+- **Translation** — full paper content translated (EN ↔ AR)
+- **OCR Text Extraction** — view extracted raw text
+- **Chat about the paper** — ask any question in context
+- Papers history — previously analyzed papers accessible anytime
+- **Language toggle** for all AI outputs
 
-### 🏠 Dashboard & Overview
-- Quick Actions: Medical Chatbot, Drug Checker, Lab Test Explainer
-- Recent Activity tracking with Resume buttons
-- Tab navigation: Overview, Medical Tools, Activity
-- Medical disclaimer and footer on all screens
+### 🩺 Symptom Checker
+- Guided multi-question flow
+- Preliminary health guidance based on symptoms
 
-### 🌍 User Experience Features
-
-#### Bilingual Support (English & Arabic)
-- **Languages**: Full English and Arabic support
-- **Fonts**:
-    - English: Outfit (Regular, SemiBold, Bold)
-    - Arabic: IBM Plex Sans Arabic (Regular, SemiBold, Bold)
-- **RTL Support**: Proper right-to-left layout for Arabic
-- **Language Toggle**: Easy switching between languages
-- **Persistent Settings**: Language preference saved locally
-
-#### Theme Modes
-- **Dark Mode** (Default):
-    - Background: `#0A1628`
-    - Container: `#1A2332`
-    - Primary Blue: `#00B4D8`
-- **Light Mode**:
-    - Background: `#F5F8FA`
-    - Container: `#FFFFFF`
-    - Primary Blue: `#0096C7`
-    - Text: `#1A2332` (primary), `#64748B` (secondary)
-- **Theme Toggle**: Switch themes from Login/Signup or Settings
-- **Persistent Settings**: Theme preference saved locally
-
-#### Accessibility Features
-- **High Contrast Mode**:
-    - Black/White color scheme
-    - Enhanced border visibility
-    - Cyan primary color for better visibility
-- **Large Text**:
-    - 1.3x text scaling factor
-    - Applies to all text throughout the app
-- **Reduce Motion**:
-    - Disables animations for users sensitive to motion
-    - Configurable per user preference
-- **All accessibility settings persist across app restarts**
-
-### ⚙️ Settings & Profile
-
-#### Settings Screen
-- Language selection (English/Arabic)
-- Theme mode (Light/Dark)
-- Notifications (Coming Soon)
-- Accessibility options (High Contrast, Large Text, Reduce Motion)
-- About MAISYS (Version, Description)
-
-#### Profile Screen
-- **Personal Information**:
-    - Full Name
-    - Age
-    - Gender (Male/Female/Other)
-    - Blood Type (A+, A-, B+, B-, AB+, AB-, O+, O-)
-- **Medical Information**:
-    - Chronic Conditions (Diabetes, Hypertension, Asthma, Heart Disease, Pregnancy)
-    - Current Medications (chip-based input)
-    - Allergies
-- **Privacy Controls**:
-    - Local data storage only
-    - Delete all stored data option
-    - No third-party sharing
-- **Save Changes**: Update profile with backend sync
-
-### 📜 Legal & Safety
-
-#### Terms & Policy Screen
-- **Medical Disclaimer**: Educational purposes only, not for diagnosis
-- **Privacy Policy**: How user data is handled
-- **AI Limitations**: Understanding AI capabilities and boundaries
-- **Data Sources**: Transparency about medical information sources
-- **User Responsibilities**: Guidelines for safe app usage
-
-#### Emergency Screen
-- Triggered by Symptom Checker for critical symptoms
-- **Call Emergency Services** button (opens phone dialer)
-- While waiting tips:
-    - Stay calm
-    - Have someone with you
-    - Gather medical information
-    - Unlock door for help
-- Clear disclaimer about app limitations
-
-#### Insufficient Info Screen
-- Shown when AI lacks reliable information
-- Reasons why (specialized expertise needed, complex interactions, etc.)
-- What you can do (consult professional, rephrase question, etc.)
-- Options to ask another question or return to dashboard
+### 📊 Activity History
+- Tracks all tool usage with timestamps
+- Color-coded icons per tool type
 
 ---
 
-## 🏗️ Architecture & Tech Stack
+## 🤖 AI Tools
 
-### Frontend Framework
-- **Flutter**: `>=3.19.0` - Cross-platform mobile development
-- **Dart**: `>=3.1.0 <4.0.0` - Programming language
+| Function | Input | Output |
+|----------|-------|--------|
+| `getMedicalChatResponse` | Conversation + optional file | Medical response |
+| `checkDrugInteractions` | Medications list + language | JSON: severity, description, recommendations |
+| `analyzeLabResults` | Lab text/image + language | JSON: markers, status, urgency |
+| `summarizeResearchPaper` | Paper text + language | JSON: background, methods, findings |
+| `generateResearchQA` | Paper text + language | Array of Q&A pairs |
+| `translateResearchPaper` | Full paper + target language | Translated text |
+| `getResearchChatResponse` | Paper context + question | Contextual AI answer |
 
-### State Management
-- **flutter_bloc**: `^8.1.3` - BLoC/Cubit pattern for state management
-- **equatable**: `^2.0.5` - Value equality for state comparison
+---
 
-### Backend Integration
-- **http**: `^1.1.0` - HTTP client for REST API calls
-- **Backend**: Node.js with Groq AI (Llama 3.3 70B)
-- **Authentication**: JWT token-based
-- **Base URL**: `http://<YOUR_LOCAL_IP>:5000/api`
+## 📱 Screens & Demo
 
-### Local Storage & Persistence
-- **shared_preferences**: `^2.2.2` - Local key-value storage
-    - JWT tokens
-    - User preferences (theme, language, accessibility)
-    - User info cache
+<div align="center">
 
-### File & Media Handling
-- **image_picker**: `^1.0.4` - Camera and gallery image selection
-- **file_picker**: `^6.1.1` - PDF and document selection
+[![Watch Demo](https://img.shields.io/badge/▶%20Watch%20Full%20App%20Demo-Click%20Here-00B4D8?style=for-the-badge)](https://drive.google.com/drive/folders/1c9OPs6rCOVtZjDE9kkt9Dui43MN-W1DK?usp=sharing)
 
-### Utilities
-- **url_launcher**: `^6.2.1` - Open URLs and phone dialer
-- **cupertino_icons**: `^1.0.2` - iOS-style icons
+[![View Screenshots](https://img.shields.io/badge/📸%20All%20Screenshots-Google%20Drive-34A853?style=for-the-badge)](https://drive.google.com/drive/folders/1c9OPs6rCOVtZjDE9kkt9Dui43MN-W1DK?usp=sharing)
 
-### Development Tools
-- **Android Studio** - Primary IDE
-- **VS Code** - Alternative lightweight editor
-- **flutter_lints**: `^2.0.0` - Dart linting rules
-- **Android Emulator** - Testing and debugging
+</div>
 
-### Custom Architecture
+| Screen | Description |
+|--------|-------------|
+| Splash + Onboarding | 4-page feature introduction |
+| Login / Sign Up | JWT auth with full validation |
+| Home Dashboard | Tab navigation — Tools & Activity |
+| Medical AI Chatbot | Multi-session chat with file upload |
+| Drug Interaction | Medication input + severity results |
+| Lab Test Analyzer | Image upload + marker breakdown |
+| Research Assistant | Upload → Summarize / Q&A / Translate / Chat |
+| User Profile | Full medical profile with picture |
+| Settings | Theme toggle + text size slider |
+| App Drawer | User avatar, name, navigation |
+
+---
+
+## 📁 Project Structure
+
 ```
 lib/
-├── cubit/                    # State Management
-│   ├── theme_cubit/         # Dark/Light mode state
-│   ├── language_cubit/      # English/Arabic state
-│   └── accessibility_cubit/ # Accessibility settings state
-├── services/                 # Backend integration
-│   └── api_service.dart     # All API endpoints
-├── screens/                  # All UI screens (30+ screens)
-├── widgets/                  # Reusable components
-│   ├── footer_widget.dart
-│   ├── medical_disclaimer_widget.dart
-│   ├── theme_toggle_widget.dart
-│   ├── language_toggle_widget.dart
-│   └── ... (more reusable widgets)
-├── theme/                    # App theming
-│   ├── app_theme.dart       # Light/Dark theme definitions
-│   ├── color_manager.dart   # Color constants
-│   └── style_helper.dart    # Text styles
-└── customs/                  # Custom form fields
+├── main.dart                          # App entry + MultiBlocProvider
+├── cubit/
+│   ├── theme_cubit/                   # Dark/Light mode
+│   ├── language_cubit/                # EN/AR switching
+│   └── accessibility_cubit/           # Text scale
+├── screens/
+│   ├── login.dart
+│   ├── sign_up.dart
+│   ├── profile_screen.dart
+│   ├── settings_screen.dart
+│   ├── forgot_password_screen.dart
+│   └── reset_password_screen.dart
+├── overviews/
+│   ├── overviewscreen.dart
+│   ├── medicaltoolsscreen.dart
+│   └── activityscreen.dart
+├── medical_tools/
+│   ├── chatscreen/                    # Chatbot
+│   ├── drug_interaction/              # Drug checker
+│   ├── lab_test/                      # Lab analyzer
+│   ├── research_assistant/            # Research tools
+│   └── symptom_checker/               # Symptom flow
+├── services/
+│   └── api_service.dart               # Centralized HTTP client
+├── widgets/
+│   ├── app_drawer.dart                # Global drawer
+│   └── app_header.dart                # Global header
+└── theme/
+    ├── color_manager.dart
+    ├── style_helper.dart
+    └── app_theme.dart
 ```
 
 ---
 
-## 📋 Prerequisites
+## 🚀 Getting Started
 
-### Required Software
+### Prerequisites
 
-1. **Flutter SDK** (3.19.0 or higher)
-    - 📹 [Installation Guide for Flutter SDK](https://youtu.be/VOfsxFSb3Fs?si=6TDDrrPf7RQ5qS7K)
-    - Verify: `flutter --version`
-
-2. **Android Studio** (Latest stable)
-    - 📹 [Installation Guide for Android Studio](https://youtu.be/wYVWrlxcnNU?si=1XjKryImyy6l_FXd)
-    - Required for Android development and emulator
-    - Install Flutter and Dart plugins
-
-3. **Git** (for version control)
-    - Download: https://git-scm.com/downloads
-
-4. **Visual Studio Code** (Optional)
-    - 📹 [Installation Guide for VS Code](https://youtu.be/nSL0jTyJ-_k?si=OQgunP6XTnXOw1Zr)
-    - Lightweight alternative to Android Studio
-    - Install Flutter and Dart extensions
-
-5. **Java Development Kit (JDK)** - JDK 11 or higher
-    - Usually comes with Android Studio
-    - Download: https://www.oracle.com/java/technologies/downloads/
-
-### System Requirements
-
-#### Windows
-- Windows 10 or later (64-bit)
-- Disk Space: 3 GB minimum (10 GB recommended)
-- RAM: 8 GB minimum (16 GB recommended)
-- Processor: Intel i5 or equivalent (i7 recommended)
-
-#### macOS
-- macOS 10.14 (Mojave) or later
-- Disk Space: 3 GB minimum
-- RAM: 8 GB minimum (16 GB recommended)
-- Apple Silicon (M1/M2) or Intel processor
-
-#### Linux
-- 64-bit Ubuntu 20.04 LTS or later
-- Disk Space: 3 GB minimum
-- RAM: 8 GB minimum (16 GB recommended)
-
-### Network Requirements
-- Stable internet connection for:
-    - Downloading dependencies
-    - Backend API communication
-    - AI model requests
-
----
-
-## 🚀 Installation Guide
-
-### Step 1: Install Required Software
-
-Follow the video tutorials linked above to install:
-1. ✅ Flutter SDK
-2. ✅ Android Studio
-3. ✅ VS Code (optional)
-4. ✅ Git
-
-### Step 2: Verify Flutter Installation
-
-Open terminal/command prompt and run:
 ```bash
-flutter doctor
+Flutter SDK >= 3.0.0
+Dart >= 3.0.0
+Node.js >= 18.x
+MongoDB
 ```
 
-Expected output should show:
-- ✅ Flutter (Channel stable, 3.19.0 or higher)
-- ✅ Android toolchain - develop for Android devices
-- ✅ Android Studio
-- ✅ Connected device or emulator
+### Installation
 
-Fix any issues indicated by ❌ or ⚠️ before proceeding.
-
-### Step 3: Set Up Android Emulator
-
-**In Android Studio:**
-1. Go to `Tools` → `Device Manager`
-2. Click `Create Device`
-3. Select a device (e.g., Pixel 6 or Pixel 7)
-4. Select a system image (API 33 or 34 recommended)
-5. Click `Finish`
-6. Start the emulator
-
-**Verify emulator:**
 ```bash
-flutter devices
-# Should show your emulator in the list
-```
+# Clone the repository
+git clone https://github.com/rahmaAshraf087/MAISYS-medical-ai.git
+cd MAISYS-medical-ai
 
-### Step 4: Clone the Repository
-```bash
-git clone https://github.com/YOUR_USERNAME/maisys-mobile.git
-cd maisys-mobile
-```
-
-### Step 5: Install Dependencies
-```bash
+# Install Flutter dependencies
 flutter pub get
-```
 
-This downloads all packages from `pubspec.yaml`.
+# Configure API endpoint
+# In lib/services/api_service.dart:
+# static const String baseUrl = 'http://YOUR_IP:5000/api';
 
-### Step 6: Add Required Assets
-
-Ensure these assets are in place:
-
-**Fonts:** (Download and place in `assets/fonts/`)
-- Outfit: Regular, SemiBold, Bold
-- IBM Plex Sans Arabic: Regular, SemiBold, Bold
-
-**Logo:**
-- `assets/svgs/appbar_logo/WhiteLogo.png`
-
-### Step 7: Configure Backend
-
-Open `lib/services/api_service.dart` and update:
-```dart
-static const String baseUrl = 'http://YOUR_BACKEND_IP:5000/api';
-```
-
-Replace `YOUR_BACKEND_IP` with your actual backend server IP address.
-
-For local development:
-- Android Emulator: Use `10.0.2.2` (points to host machine's localhost)
-- Physical Device: Use your computer's local IP (e.g., `192.168.1.100`)
-
----
-
-## ▶️ How to Run
-
-### Option 1: Using Command Line
-```bash
-# Check available devices
-flutter devices
-
-# Run on default device
-flutter run
-
-# Run on specific device
-flutter run -d <device_id>
-
-# Run in release mode (optimized)
-flutter run --release
-```
-
-### Option 2: Using Android Studio
-
-1. Open project in Android Studio
-2. Wait for Gradle sync to complete
-3. Select device/emulator from dropdown (top toolbar)
-4. Click **Run** button (▶️) or press `Shift + F10`
-5. App will build and launch
-
-### Option 3: Using VS Code
-
-1. Open project in VS Code
-2. Open `main.dart`
-3. Press `F5` or go to `Run` → `Start Debugging`
-4. Select target device from popup
-5. App will build and launch
-
-### Hot Reload & Hot Restart
-
-During development:
-- **Hot Reload**: Press `r` in terminal or click ⚡ in IDE (fast UI updates)
-- **Hot Restart**: Press `R` in terminal or click 🔄 in IDE (full restart)
-
-### Troubleshooting
-
-**Build issues:**
-```bash
-flutter clean
-flutter pub get
+# Run the app
 flutter run
 ```
 
-**Gradle issues:**
+### Backend Setup
+
 ```bash
-cd android
-./gradlew clean
-cd ..
-flutter run
+cd maisys-backend
+npm install
+
+# Create .env file
+cp .env.example .env
+# Fill in: MONGODB_URI, JWT_SECRET, GROQ_API_KEY, EMAIL_USER, EMAIL_PASS
+
+npm run dev
 ```
 
-**Detailed logs:**
-```bash
-flutter run -v
-```
+### Environment Variables
 
----
-
-## 📂 Project Structure
-```
-maisys-mobile/
-│
-├── lib/                          # Main application code
-│   ├── main.dart                 # App entry point with BLoC providers
-│   │
-│   ├── cubit/                    # State Management (BLoC/Cubit)
-│   │   ├── theme_cubit/         # Dark/Light mode state
-│   │   │   ├── theme_cubit.dart
-│   │   │   └── theme_state.dart
-│   │   ├── language_cubit/      # Language switching state
-│   │   │   ├── language_cubit.dart
-│   │   │   └── language_state.dart
-│   │   └── accessibility_cubit/ # Accessibility settings
-│   │       ├── accessibility_cubit.dart
-│   │       └── accessibility_state.dart
-│   │
-│   ├── screens/                  # All application screens (30+)
-│   │   ├── splash_screen.dart         # Splash with auto-login
-│   │   ├── welcome_screens/           # Onboarding (4 screens)
-│   │   ├── login.dart                 # Login screen
-│   │   ├── sign_up.dart               # Signup screen
-│   │   ├── overview_screen.dart       # Main dashboard
-│   │   ├── medical_tools_screen.dart  # Tools grid
-│   │   ├── activity_screen.dart       # Activity history
-│   │   ├── pre_chat_screen.dart       # Chat history
-│   │   ├── chat_screen.dart           # AI chat interface
-│   │   │
-│   │   ├── symptom_checker_question1_screen.dart  # Symptom Q1
-│   │   ├── symptom_checker_question2_screen.dart  # Symptom Q2
-│   │   ├── symptom_checker_question3_screen.dart  # Symptom Q3
-│   │   │
-│   │   ├── drug_interaction_screen.dart           # Drug input
-│   │   ├── drug_interaction_result_screen.dart    # Drug results
-│   │   │
-│   │   ├── lab_test_upload_screen.dart            # Lab upload
-│   │   ├── lab_test_processing_screen.dart        # Lab processing
-│   │   ├── lab_test_result_screen.dart            # Lab results
-│   │   │
-│   │   ├── research_assistant_upload_screen.dart  # Paper upload
-│   │   ├── research_assistant_tools_screen.dart   # Paper tools
-│   │   ├── research_assistant_chat_screen.dart    # Paper chat
-│   │   ├── research_assistant_summary_screen.dart # Summarization
-│   │   ├── research_assistant_translation_screen.dart # Translation
-│   │   ├── research_assistant_ocr_screen.dart     # OCR
-│   │   ├── research_assistant_qna_screen.dart     # Q&A
-│   │   │
-│   │   ├── settings_screen.dart       # Settings
-│   │   ├── profile_screen.dart        # User profile
-│   │   ├── terms_policy_screen.dart   # Legal info
-│   │   ├── emergency_screen.dart      # Emergency alert
-│   │   └── insufficient_info_screen.dart # AI limitation
-│   │
-│   ├── services/                 # Backend API integration
-│   │   └── api_service.dart     # All API endpoints
-│   │
-│   ├── widgets/                  # Reusable UI components
-│   │   ├── footer_widget.dart
-│   │   ├── medical_disclaimer_widget.dart
-│   │   ├── medication_chip.dart
-│   │   ├── research_paper_header_widget.dart
-│   │   ├── research_paper_card_widget.dart
-│   │   ├── theme_toggle_widget.dart
-│   │   └── language_toggle_widget.dart
-│   │
-│   ├── theme/                    # App theming
-│   │   ├── app_theme.dart       # Theme definitions
-│   │   ├── color_manager.dart   # Color constants
-│   │   ├── style_helper.dart    # Text styles
-│   │   └── font_weight_manager.dart
-│   │
-│   └── customs/                  # Custom form widgets
-│       └── customtextformfield.dart
-│
-├── android/                      # Android-specific files
-├── ios/                          # iOS-specific files
-├── assets/                       # Images, fonts, assets
-│   ├── fonts/                   # Outfit & IBM Plex fonts
-│   ├── svgs/appbar_logo/        # App logo
-│   └── images/                  # Other images
-│
-├── test/                         # Unit & widget tests
-├── pubspec.yaml                  # Dependencies & metadata
-├── pubspec.lock                  # Locked dependency versions
-├── README.md                     # This file
-└── .gitignore                    # Git ignore rules
+```env
+MONGODB_URI=mongodb://localhost:27017/maisys_db
+JWT_SECRET=your-secret-key
+JWT_EXPIRES_IN=7d
+GROQ_API_KEY=your-groq-api-key
+EMAIL_USER=your-gmail@gmail.com
+EMAIL_PASS=your-app-password
 ```
 
 ---
 
-## 🔌 Backend API Integration
+## 👩‍💻 My Role
 
-### API Base URL
-```
-http://<YOUR_IP>:5000/api
-```
+I was the **sole Mobile Application Developer** on the MAISYS team, responsible for:
 
-### Authentication Endpoints
-
-| Endpoint | Method | Description | Body |
-|----------|--------|-------------|------|
-| `/auth/login` | POST | User login | `{email, password}` |
-| `/auth/signup` | POST | User registration | `{firstName, email, password}` |
-| `/auth/me` | GET | Get user profile | Token required |
-| `/auth/profile` | PUT | Update profile | `{phone?, medical?}` |
-| `/auth/forgot-password` | POST | Request password reset | `{email}` |
-| `/auth/verify-code` | POST | Verify OTP | `{email, code}` |
-| `/auth/reset-password` | POST | Reset password | `{email, resetToken, newPassword}` |
-
-### Medical Tools Endpoints
-
-| Endpoint | Method | Description | Body |
-|----------|--------|-------------|------|
-| `/tools/symptom-check` | POST | Analyze symptoms | `{symptoms, duration, severity}` |
-| `/tools/drug-check` | POST | Check drug interactions | `{medications: []}` |
-| `/tools/lab-explain` | POST | Explain lab results | `{labText}` |
-
-### Research Assistant Endpoints
-
-| Endpoint | Method | Description | Body |
-|----------|--------|-------------|------|
-| `/tools/research/upload` | POST | Upload paper | Multipart: `file` |
-| `/tools/research/search` | POST | Search papers | `{query}` |
-| `/tools/research/summarize/:id` | POST | Summarize paper | - |
-| `/tools/research/translate/:id` | POST | Translate paper | `{targetLang}` |
-| `/tools/research/qa/:id` | POST | Generate Q&A | - |
-| `/research-chat/analyze-image` | POST | OCR extraction | Multipart: `file` |
-
-### Dashboard
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/tools/dashboard-stats` | GET | Get user stats |
-| `/health` | GET | Server health check |
-
-### Error Responses
-All endpoints return consistent error format:
-```json
-{
-  "success": false,
-  "message": "Error description"
-}
-```
-
-### Authentication
-Protected endpoints require JWT token in header:
-```
-Authorization: Bearer <YOUR_JWT_TOKEN>
-```
+- ✅ Designed and built the complete Flutter app architecture using **BLoC pattern**
+- ✅ Implemented **30+ screens** with dark/light theming and Arabic RTL support
+- ✅ Integrated all **5 AI-powered medical tools** with the Node.js backend
+- ✅ Built the complete **JWT authentication flow** including OTP password reset
+- ✅ Developed the **centralized ApiService** handling all HTTP communication
+- ✅ Implemented full **bilingual localization** (EN/AR) with font switching
+- ✅ Designed unified **AppDrawer + AppHeader** components used across all screens
+- ✅ Managed **Firebase App Distribution** for team testing and deployment
 
 ---
 
-## 🧪 Testing
+## 📬 Contact
 
-### Run Tests
-```bash
-# All tests
-flutter test
+<div align="center">
 
-# With coverage
-flutter test --coverage
+[![LinkedIn](https://img.shields.io/badge/Rahma%20Ashraf%20Fadl-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rahma-ashraf-28b219279/)
+[![GitHub](https://img.shields.io/badge/rahmaAshraf087-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rahmaAshraf087)
 
-# Specific test file
-flutter test test/widget_test.dart
-
-# Integration tests
-flutter test integration_test/
-```
-
-### Testing Checklist
-- [ ] Unit tests for Cubits
-- [ ] Unit tests for API service
-- [ ] Widget tests for screens
-- [ ] Widget tests for reusable components
-- [ ] Integration tests for user flows
-- [ ] Manual testing on physical devices
-- [ ] Manual testing on different screen sizes
-
----
-
-## 📸 Screenshots
-
-*(Screenshots will be added as features are completed)*
-
-### Authentication Flow
-- Splash Screen
-- Welcome/Onboarding (4 screens)
-- Login Screen
-- Signup Screen
-
-
-### Main Features
-- Overview Dashboard
-- Medical Tools Grid
-- Activity History
-- Chat Interface
-
-### Medical Tools
-- Symptom Checker (3 questions)
-- Drug Interaction Checker
-- Lab Test Explainer
-- Research Assistant
-
-### Settings & Profile
-- Settings Screen (Theme, Language, Accessibility)
-- Profile Screen (Personal & Medical Info)
-- Terms & Policy Screen
-
-### Special Screens
-- Emergency Alert
-- Insufficient Information
-
----
-
-### Future Enhancements 🔮 (Post-Graduation)
-- [ ] Push notifications
-- [ ] Medication reminders
-- [ ] Health tracking dashboard
-- [ ] Wearable device integration
-- [ ] Telemedicine features
-- [ ] Multi-language support expansion
-- [ ] Forget password flow
-
----
-
-## 🤝 Contributing
-
-This is an academic graduation project. Contributions are welcome!
-
-### How to Contribute
-1. Fork the repository
-2. Create feature branch: `git checkout -b feature/AmazingFeature`
-3. Commit changes: `git commit -m 'Add AmazingFeature'`
-4. Push to branch: `git push origin feature/AmazingFeature`
-5. Open Pull Request
-
-### Contribution Guidelines
-- Follow Flutter best practices
-- Maintain BLoC architecture pattern
-- Add tests for new features
-- Update documentation
-- Follow existing code style
-
----
-
-## 👥 Team
-
-### Development Team
-| Role | Name | Email | GitHub |
-|------|------|-------|--------|
-| **Mobile Developer** | Rahma Fadl | rahmafadl087@gmail.com | [@RahmaFadl](https://github.com/RahmaFadl) |
-| **Project Lead & Backend** | Abdelhady Ali | - | [@Abdelhady-22](https://github.com/Abdelhady-22) |
-| **Team Member** | Omar Ahmed | - | - |
-| **Team Member** | Ahmed Antar | - | - |
-| **Team Member** | Samir Mahmoud | - | - |
-
-### Academic Information
-- **Institution**: Faculty of Computers and Artificial Intelligence
-- **University**: Benha University
-- **Academic Year**: 2025/2026
-- **Project Supervisor**: Dr. Doaa Lotfy
-- **Project Type**: Graduation Project (Mobile + Web + AI)
-
----
-
-## 📞 Contact & Support
-
-### Project Links
-- **GitHub Repository (Mobile)**: [maisys-mobile](https://github.com/YOUR_USERNAME/maisys-mobile)
-- **GitHub Repository (Web)**: [Coming Soon]
-- **Backend Repository**: [Coming Soon]
-- **Project Email**: rahmafadl087@gmail.com
-
-### Support Channels
-For questions, suggestions, or bug reports:
-1. Open an issue on GitHub
-2. Email: rahmafadl087@gmail.com
-3. Submit a pull request with improvements
-
----
-
-## 📄 License
-
-This project is developed for academic purposes as part of graduation requirements.
-
-**Copyright © 2026 MAISYS Team**  
-Faculty of Computers and Artificial Intelligence, Benha University
-
-All rights reserved. This project is intended for educational and portfolio purposes.
-
----
-
-## ⚠️ Medical Disclaimer
-
-**IMPORTANT: MAISYS provides medical information for educational purposes only.**
-
-### What MAISYS IS:
-- ✅ Educational medical information tool
-- ✅ Health guidance assistant
-- ✅ Medical research helper
-- ✅ Symptom awareness tool
-
-### What MAISYS IS NOT:
-- ❌ NOT a replacement for professional medical advice
-- ❌ NOT for medical diagnoses or treatment recommendations
-- ❌ NOT for medical emergencies
-- ❌ NOT a licensed medical professional
-
-### Important Guidelines:
-- Always consult qualified healthcare professionals for medical decisions
-- Do NOT use for medical emergencies - call emergency services immediately
-- Information provided may not be complete or applicable to your specific situation
-- Drug interaction checks are for reference only
-- AI responses are based on training data and may contain errors
-- The app cannot perform physical examinations or diagnostic tests
-
-**By using MAISYS, you acknowledge these limitations and agree to use the app responsibly.**
-
----
-
-## 🙏 Acknowledgments
-
-### Technology & Tools
-- **Flutter Team** - Excellent framework and documentation
-- **Groq AI** - Llama 3.3 70B model for medical AI
-- **Anthropic** - Claude for development assistance
-- **Open Source Community** - All package contributors
-
-### Academic Support
-- **Dr. Doaa Lotfy** - Project supervisor and guidance
-- **Faculty of Computers and AI** - Resources and support
-- **Benha University** - Academic institution
-
-### Special Thanks
-- Beta testers and early users
-- Medical professionals who reviewed content
-- Family and friends for support
-
-### Data Sources
-- **Peer-reviewed medical journals** - Research and clinical data
-- **WHO & CDC Guidelines** - Public health information
-- **Medical Databases** - Drug interactions and references
-- **Clinical Practice Guidelines** - Medical associations
-
----
-
-## 📌 Important Notes
-
-### Current Status
-- This README reflects the **current state** of the project as of **February 2026**
-- All core features are implemented with UI
-- Backend integration is in progress
-- Real AI responses will replace placeholder data soon
-
-### Known Limitations
-- Backend must be running locally for full functionality
-- Some features use placeholder data (will be replaced with real AI)
-- File uploads not yet connected to backend processing
-- Push notifications not yet implemented
-
-### Future Updates
-- API configuration will be updated once backend is deployed
-- Screenshots will be added as features are finalized
-- Performance optimizations ongoing
-- Additional documentation will be added
+</div>
 
 ---
 
 <div align="center">
 
-**⭐ If you find this project helpful, please consider giving it a star!**
+**Benha University · Faculty of Computer & Artificial Intelligence · Scientific Computing · 2025/2026**
 
-**Made with ❤️ by MAISYS Team**
+Supervised by **Dr. Doaa Lotfy**
 
-*Empowering health through AI*
-
----
-
-**Project Statistics:**
-- 📱 **30+ Screens** | 🎨 **2 Themes** | 🌍 **2 Languages** | ♿ **3 Accessibility Features**
-- 🤖 **5 AI Tools** | 🔐 **JWT Auth** | 📊 **BLoC Architecture** | 🎯 **Academic Excellence**
+<img src="https://capsule-render.vercel.app/api?type=waving&color=00B4D8&height=100&section=footer" width="100%"/>
 
 </div>
